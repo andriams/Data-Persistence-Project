@@ -72,5 +72,12 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if(m_Points > SessionManager.Instance.bestScore)
+        {
+            SessionManager.Instance.bestScore = m_Points;
+            SessionManager.Instance.bestPlayerName = SessionManager.Instance.playerName;
+            SessionManager.Instance.SaveScore();
+        }
     }
 }
